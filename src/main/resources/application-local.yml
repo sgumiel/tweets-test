@@ -1,0 +1,57 @@
+management:
+  server:
+    port: 8081
+    ssl:
+      enabled: false
+  endpoints:
+    web:
+      base-path: /
+server:
+  port: 8080
+  servlet:
+    context-path: /tweets-test
+
+spring:
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: false
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baselineOnMigrate: true
+    out-of-order: true
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:TWEETSTEST;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: tweetstest
+    password: tweetstest
+    continueOnError: true
+
+tweeter:
+  credentials:
+    api-key: JshubMpsHCmKFPt6i6oQzoLSI
+    api-secret: 50wBojCAyCQ2Yw0jrQvjNSzMwtJltohWG9piZ5KgmyEED2PsOr
+    bearer-token: AAAAAAAAAAAAAAAAAAAAADW4QwEAAAAAlapC0Gmn9ICVNWnloZdl1sykWI4%3DZGeGLIEyzGEJLNifJBkyt3xtNasIGsPZuK485OJLLwdaCRLIGZ
+    #secret:
+    #tokenSecret:
+    secret: 308083232-9oWmg18p0vVeZehnLpcA9fKC8LOjeolALctcuY3P
+    tokenSecret: gfb3z3obvJK8jLyHdJjD4ywz558KpeC4Lxx9A4ZuKw2TW
+
+springdoc:
+  api-docs:
+    path: /api-docs
+
+logging:
+  level:
+    com.sgumiel.tweetstest: DEBUG
