@@ -13,12 +13,33 @@ spring:
         show_sql: false
         format_sql: false
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     default-property-inclusion: non_null
   flyway:
     enabled: false
+
+tweeter:
+  credentials:
+    api-key:
+    api-secret:
+    bearer-token:
+    #secret:
+    #tokenSecret:
+    secret:
+    tokenSecret:
+
+tweettest:
+  get:
+    hashtag: 10
+  save:
+    min-followers-to-save: 20
+    langs:
+      - es
+      - fr
+      - it
+
 
 logging:
   level:

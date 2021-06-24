@@ -43,10 +43,19 @@ tweeter:
     api-key: JshubMpsHCmKFPt6i6oQzoLSI
     api-secret: 50wBojCAyCQ2Yw0jrQvjNSzMwtJltohWG9piZ5KgmyEED2PsOr
     bearer-token: AAAAAAAAAAAAAAAAAAAAADW4QwEAAAAAlapC0Gmn9ICVNWnloZdl1sykWI4%3DZGeGLIEyzGEJLNifJBkyt3xtNasIGsPZuK485OJLLwdaCRLIGZ
-    #secret:
-    #tokenSecret:
-    secret: 308083232-9oWmg18p0vVeZehnLpcA9fKC8LOjeolALctcuY3P
-    tokenSecret: gfb3z3obvJK8jLyHdJjD4ywz558KpeC4Lxx9A4ZuKw2TW
+    secret: 
+    tokenSecret:
+
+tweettest:
+  get:
+    hashtag: 10
+  save:
+    min-followers-to-save: 1500
+    langs:
+      - es
+      - fr
+      - it
+
 
 springdoc:
   api-docs:

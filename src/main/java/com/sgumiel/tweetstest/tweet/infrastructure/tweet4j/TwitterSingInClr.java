@@ -1,6 +1,5 @@
-package com.sgumiel.tweetstest.clr;
+package com.sgumiel.tweetstest.tweet.infrastructure.tweet4j;
 
-import com.sgumiel.tweetstest.TwitterSignInService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
@@ -13,9 +12,13 @@ public class TwitterSingInClr implements CommandLineRunner {
   @Autowired
   private TwitterSignInService twitterSignInService;
 
+  @Autowired
+  private TweetsLoader tweetsLoader;
+
   @Override
   public void run(String... args) throws Exception {
     this.twitterSignInService.signIn();
+    this.tweetsLoader.loadTweets();
 
   }
 }

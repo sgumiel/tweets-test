@@ -1,11 +1,11 @@
-package com.sgumiel.tweetstest;
+package com.sgumiel.tweetstest.tweet.infrastructure.tweet4j;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 import com.sgumiel.tweetstest.flag.TwitterSignedInFlag;
-import com.sgumiel.tweetstest.tweet.infrastructure.batch.TweetsConsumerConfig;
+import com.sgumiel.tweetstest.tweet.infrastructure.tweet4j.config.Tweets4jConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import twitter4j.auth.RequestToken;
 public class TwitterSignInService {
 
   @Autowired
-  private TweetsConsumerConfig tweetsConsumerConfig;
+  private Tweets4jConfig tweets4jConfig;
 
   @Autowired
   private TwitterSignedInFlag twitterSignedInFlag;
@@ -30,9 +30,9 @@ public class TwitterSignInService {
 
     Twitter twitter = TwitterFactory.getSingleton();
 
-    if(StringUtils.isNotEmpty(tweetsConsumerConfig.getSecret()) && StringUtils.isNotEmpty(tweetsConsumerConfig.getTokenSecret())) {
-      final var accessToken = new AccessToken(tweetsConsumerConfig.getSecret(), tweetsConsumerConfig.getTokenSecret());
-      twitter.setOAuthConsumer(tweetsConsumerConfig.getApiKey(), tweetsConsumerConfig.getApiSecret());
+    if(StringUtils.isNotEmpty(tweets4jConfig.getSecret()) && StringUtils.isNotEmpty(tweets4jConfig.getTokenSecret())) {
+      final var accessToken = new AccessToken(tweets4jConfig.getSecret(), tweets4jConfig.getTokenSecret());
+      twitter.setOAuthConsumer(tweets4jConfig.getApiKey(), tweets4jConfig.getApiSecret());
       twitter.setOAuthAccessToken(accessToken);
       twitterSignedInFlag.signedIn();
       log.debug("Signed in");
@@ -40,7 +40,7 @@ public class TwitterSignInService {
 
     }
 
-    twitter.setOAuthConsumer(tweetsConsumerConfig.getApiKey(), tweetsConsumerConfig.getApiSecret());
+    twitter.setOAuthConsumer(tweets4jConfig.getApiKey(), tweets4jConfig.getApiSecret());
     RequestToken requestToken = twitter.getOAuthRequestToken();
     AccessToken accessToken = null;
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

@@ -6,10 +6,12 @@ CREATE TABLE user (
 
 CREATE TABLE tweet (
    id IDENTITY,
-   user_id INT NOT NULL,
-   test VARCHAR(140) NOT NULL,
-   location INT NOT NULL,
-   validate BOOLEAN NOT NULL,
+   user_id BIGINT NOT NULL,
+   text VARCHAR(500) NOT NULL,
+   lang VARCHAR(10) NOT NULL,
+   longitude BIGINT,
+   latitude BIGINT,
+   validated BOOLEAN NOT NULL,
    FOREIGN KEY (user_id) REFERENCES user(id)
 );
 

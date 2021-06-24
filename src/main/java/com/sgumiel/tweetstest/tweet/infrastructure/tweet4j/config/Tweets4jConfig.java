@@ -1,4 +1,4 @@
-package com.sgumiel.tweetstest.tweet.infrastructure.batch;
+package com.sgumiel.tweetstest.tweet.infrastructure.tweet4j.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @Configuration
 @EnableScheduling
 @ConfigurationProperties(prefix = "tweeter.credentials")
-public class TweetsConsumerConfig {
+public class Tweets4jConfig {
 
   private String apiKey;
   private String apiSecret;

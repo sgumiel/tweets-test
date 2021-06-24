@@ -9,7 +9,7 @@ import spock.lang.Specification
 
 @SpringBootTest(classes = TweetsTestApplication.class )
 @ActiveProfiles("test")
-class BankApplicationTest extends Specification {
+class TweetsApplicationTest extends Specification {
 
     @Autowired(required = false)
     private ApplicationContext applicationContext
@@ -17,5 +17,7 @@ class BankApplicationTest extends Specification {
     def "when context is loaded then all expected beans are created"() {
         expect: "the application context is created"
         applicationContext;
+
     }
+
 }
